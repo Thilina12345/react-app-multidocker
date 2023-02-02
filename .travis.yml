@@ -15,5 +15,10 @@ after_success:
   - docker build -t thilina9718/multi-nginx ./nginx
   - docker build -t thilina9718/multi-server ./server
   - docker build -t thilina9718/multi-worker ./worker
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker push thilina9718/multi-client
+  - docker push thilina9718/multi-nginx
+  - docker push thilina9718/multi-server
+  - docker push thilina9718/multi-worker
 
 
